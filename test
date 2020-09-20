@@ -2,13 +2,12 @@
 spit() {
 	for i ; do echo "$i"; done
 }
-
-for n in {20..80..9}; do
-	spit 1 2222222222222222 3 4 5 6 7777777777777777 \
+for n in {40..80..9}; do
+	echo columnate -xw$n
+	spit 1 2222222222222222 3 4 5 6 7777777777777777 8 99999999999999 $(seq 10 30) \
 	| ./columnate -xw$n
-	echo
-	spit 1 2222222222222222 3 4 5 6 7777777777777777 \
+	echo columnate -Cw$n
+	spit 1 2222222222222222 3 4 5 6 7777777777777777 8 99999999999999 $(seq 10 30) \
 	| ./columnate -Cw$n
-	echo
 done
 	
